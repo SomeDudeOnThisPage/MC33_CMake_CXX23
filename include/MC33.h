@@ -6,7 +6,7 @@
 	This library is the C++ version of the library described in the paper:
 	Vega, D., Abache, J., Coll, D., A Fast and Memory Saving Marching Cubes 33
 	implementation with the correct interior test, Journal of Computer Graphics
-	Techniques (JCGT), vol. 8, no. 3, 1–17, 2019.
+	Techniques (JCGT), vol. 8, no. 3, 1ï¿½17, 2019.
 */
 
 #ifndef MC33_h_
@@ -362,7 +362,7 @@ public:
 };
 
 #ifndef compiling_libMC33
-int MC33::DefaultColor = 0xff5c5c5c;//gray RGBA color as unsigned char[3], 0xAABBGGRR
+inline int MC33::DefaultColor = 0xff5c5c5c;//gray RGBA color as unsigned char[3], 0xAABBGGRR
 
 #ifdef GL_VERSION
 #if MC33_double_precision
@@ -431,18 +431,17 @@ template<typename T> void T_multA_b(const double (*A)[3], T *b, T *c, int t) {
 	c[1] = v;
 }
 
-void (*multAbf)(const double (*)[3], MC33_real *, MC33_real *, int);
+inline void (*multAbf)(const double (*)[3], MC33_real *, MC33_real *, int);
 
-void (*mult_TSAbf)(const double (*)[3], MC33_real *, MC33_real *, int) = T_multTSA_b;
-void (*mult_Abf)(const double (*)[3], MC33_real *, MC33_real *, int) = T_multA_b;
+inline void (*mult_TSAbf)(const double (*)[3], MC33_real *, MC33_real *, int) = T_multTSA_b;
+inline void (*mult_Abf)(const double (*)[3], MC33_real *, MC33_real *, int) = T_multA_b;
 #if GRD_type_size == 8
-void (*multAb)(const double (*)[3], double *, double *, int) = mult_Abf;
+inline void (*multAb)(const double (*)[3], double *, double *, int) = mult_Abf;
 #else
-void (*multAb)(const double (*)[3], double *, double *, int) = T_multA_b;
+inline void (*multAb)(const double (*)[3], double *, double *, int) = T_multA_b;
 #endif
 #endif // GRD_orthogonal
 
 #endif // compiling_libMC33
 
 #endif // MC33_h_
-
