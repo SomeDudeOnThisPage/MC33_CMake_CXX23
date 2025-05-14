@@ -1,0 +1,2 @@
+/usr/bin/ar qc libMC33.a CMakeFiles/MC33.dir/source/grid3d.cpp.o CMakeFiles/MC33.dir/source/MC33.cpp.o CMakeFiles/MC33.dir/source/surface.cpp.o
+/usr/bin/ranlib libMC33.a
